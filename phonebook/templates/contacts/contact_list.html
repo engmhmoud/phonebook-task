@@ -1,0 +1,37 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+
+
+    <a href="{% url 'contacts:add-contact' %}"> Add Contact</a>
+  
+    {% if  contact_list %} 
+    <table class="table">
+        <thead>
+            <tr>
+                <th>firstname</th>
+                <th>lastname</th>
+                <th>email</th>
+                <th>phone</th>
+                <th>mobile_phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            {% for  contact   in contact_list  %}  contact
+            <tr>
+                <td scope="row">{{contact.firstname}}</td>
+                <td>{{contact.firstname}}</td>
+                <td>{{contact.lastname}}</td>
+                <td>{{contact.email}}</td>
+                <td>{{contact.phone}}</td>
+                <td>{{contact.mobile_phone}}</td>
+                
+            </tr>
+            {% endfor %}  
+           
+        </tbody>
+    </table>
+    {% endif %}
+        
+{% endblock content %}
