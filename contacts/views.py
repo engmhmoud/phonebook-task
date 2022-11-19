@@ -7,7 +7,7 @@ from django import forms
 from django.shortcuts import redirect
 
 # Create your views here .
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, DetailView
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -100,3 +100,15 @@ class AddContact(LoginRequiredMixin, CreateView):
             number.save()
 
         return super(AddContact, self).form_valid(form)
+
+
+class ViewContact(DetailView):
+    model = Contact
+    template_name = "contacts/view_contact.html"
+
+    def get_context_data(self, **kwargs):
+
+        context_data = super().get_context_data(**kwargs)
+
+        context_data["numbers"] = Numbers.objects.filter(contact=kwargs.get("object"))
+        return context_data

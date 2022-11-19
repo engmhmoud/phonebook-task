@@ -1,0 +1,21 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+
+
+<button onclick="window.history.back()">Back</button>
+
+<p>firstname:{{contact.lastname}}</p>
+<p>lastname:{{contact.lastname}}</p>
+<p>email:{{contact.lastname}}</p>
+<p>mobile_phone:{{contact.email}}</p>
+{% if  numbers %}
+    Numbers :
+    {% for  number in numbers  %}
+    <p>number :{{number.phone}}</p>
+
+    {% endfor %}
+{% endif %}
+     
+        
+{% endblock content %}

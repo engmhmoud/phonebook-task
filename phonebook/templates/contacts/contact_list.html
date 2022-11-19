@@ -12,23 +12,23 @@
                 <th>firstname</th>
                 <th>lastname</th>
                 <th>email</th>
-                <th>phone</th>
-                <th>mobile_phone</th>
+                
             </tr>
         </thead>
         <tbody>
             
-            {% for  contact   in contact_list  %}  contact
-            <tr>
-                <td scope="row">{{contact.firstname}}</td>
-                <td>{{contact.firstname}}</td>
-                <td>{{contact.lastname}}</td>
-                <td>{{contact.email}}</td>
-                <td>{{contact.phone}}</td>
-                <td>{{contact.mobile_phone}}</td>
-                
-            </tr>
-            {% endfor %}  
+            {% for  contact   in contact_list  %}   
+            
+                    
+                <tr>
+                    <td scope="row"><a href="{% url 'contacts:view-contact' contact.id %}">{{contact.firstname}} </a></td>
+                    
+                    <td>{{contact.lastname}}</td>
+                    <td>{{contact.email}}</td>
+                    
+                </tr>
+           
+                {% endfor %}  
            
         </tbody>
     </table>
