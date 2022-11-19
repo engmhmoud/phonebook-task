@@ -36,3 +36,4 @@ class NemberForm(forms.ModelForm):
 
 
 # NumberFormSet = forms.inlineformset_factory(Contact, Numbers, form=MemberForm, extra=2)
+NemberFormSet = forms.inlineformset_factory(Contact, Numbers, form=NemberForm, extra=2)
